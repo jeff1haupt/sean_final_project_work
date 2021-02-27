@@ -18,7 +18,7 @@ import javax.persistence.OneToOne;
 @Entity
 public class Listings {
 	
-	private Long ListingID;
+	private Long id;
 	private Set<ListingCategories> ListingCategories;
 	private Users user;
 	private double ListingPrice;
@@ -28,11 +28,11 @@ public class Listings {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Long getListingID() {
-		return ListingID;
+		return id;
 	}
 	
-	public void setListingID(Long listingID) {
-		ListingID = listingID;
+	public void setListingID(Long id) {
+		this.id = id;
 	}
 	
 	
@@ -64,10 +64,10 @@ public class Listings {
 		ListingStatus = listingStatus;
 	}
 
-//	@ManyToMany(cascade = CascadeType.ALL)
-//	@JoinTable(name = "listing_by_categories",
-//			joinColumns = @JoinColumn(name = "listingid", referencedColumnName = "ListingID"),
-//			inverseJoinColumns = @JoinColumn(name = "listingcategoryid", referencedColumnName = "ListingCategoryID"))
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "listingcategories",
+			joinColumns = @JoinColumn(name = "listingid", referencedColumnName = "id"),
+			inverseJoinColumns = @JoinColumn(name = "listingcategoryid", referencedColumnName = "id"))
 	public Set<ListingCategories> getListingCategories() {
 		return ListingCategories;
 	}
