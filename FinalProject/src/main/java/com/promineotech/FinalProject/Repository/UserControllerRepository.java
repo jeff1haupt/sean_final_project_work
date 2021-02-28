@@ -6,7 +6,7 @@ import com.promineotech.FinalProject.Entity.Users;
 
 public interface UserControllerRepository extends CrudRepository<Users, Long> {
 
-	 public Users findByUsername(String UserName);
+	 public Users findByUsername( String username );
 
 }
 

@@ -20,7 +20,8 @@ public class Users {
 
 	private Long id; 
 	private String hash;
-	private String UserName;
+	private String userName;
+
 	@JsonIgnore
 	private Set<Listings> listings;
 	
@@ -35,10 +36,10 @@ public class Users {
 	
 	@Column(unique = true)
 	public String getUserName() {
-		return UserName;
+		return userName;
 	}
-	public void setUserName(String UserName) {
-		this.UserName = UserName;
+	public void setUserName(String username) {
+		this.userName = userName;
 	}
 	
 	public String getHash() {

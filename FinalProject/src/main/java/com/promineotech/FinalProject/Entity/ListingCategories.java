@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 public class ListingCategories {
 	
 	private Long id;
-	private String Description;
+	private String description;
 	private Set<Listings> listings;
 	
 	@Id
@@ -23,19 +23,21 @@ public class ListingCategories {
 	}
 	
 	public void setListingCategoryID(Long id) {
-		id = id;
+
+		this.id = id;
 	}
 
 	
 	public String getDescription() {
-		return Description;
+		return description;
 	}
 
 	public void setDescription(String description) {
-		Description = description;
+
+		this.description = description;
 	}
 	
-	@ManyToMany(mappedBy = "listings")
+	@ManyToMany(mappedBy = "categories")
 	public Set<Listings> getListing() {
 		return listings;
 	}
